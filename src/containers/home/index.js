@@ -1,5 +1,4 @@
 import React from 'react'
-import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import {
@@ -24,7 +23,6 @@ const Home = props => (
       <button onClick={props.decrementAsync} disabled={props.isDecrementing}>Decrement Async</button>
     </p>
 
-    <p><button onClick={() => props.changePage()}>Go to about page via redux</button></p>
   </div>
 )
 
@@ -38,10 +36,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   increment,
   incrementAsync,
   decrement,
-  decrementAsync,
-  changePage: () => {
-    dispatch(push('/about-us'))
-  }
+  decrementAsync
 }, dispatch)
 
 export default connect(
