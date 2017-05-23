@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 
-const App = ({ children }) => (
-  <div>
-    <header>
-      <Link to="/">Home</Link>
-      <Link to="/about-us">About</Link>
-    </header>
+export default class App extends Component {
+  static propTypes = {
+    children: PropTypes.array,
+  };
 
-    <main>
-      {children}
-    </main>
-  </div>
-)
+  render() {
+    return (
+      <div>
+        <header>
+          <Link to="/">Home</Link>
+          <Link to="/about-us">About</Link>
+        </header>
 
-export default App
+        <main>
+          {this.props.children}
+        </main>
+      </div>
+    )
+  }
+}
